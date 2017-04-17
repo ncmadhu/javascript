@@ -1,5 +1,5 @@
 // Author: Madhu Chakravarthy
-// Date: 16-04-2-17
+// Date: 16-04-2017
 
 
 var palindrome = function(string) {
