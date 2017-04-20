@@ -10,7 +10,7 @@ var fibonacci_series = function(n) {
         } else if(n===1) {
             arr.push(0,1)
         } else {
-            fibonacci_series2(n-1,arr)
+            fibonacci_series2(n-1)
             arr.push(arr[arr.length -1] + arr[arr.length-2])
         }
     }
