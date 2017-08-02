@@ -1,0 +1,17 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Login
+    link(rel='stylesheet', href='css/login.css')
+  body
+    div.log-form
+      h2 Signup
+      form(method="post",enctype="multipart/form-data")
+        input(type='text', name='username', placeholder='username')
+        input(type='password', name='password', placeholder='password')
+        input(type='email', name='email', placeholder='email')
+        button.btn(type='submit', value="Submit") Signup
+

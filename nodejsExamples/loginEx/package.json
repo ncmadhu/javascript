@@ -1,0 +1,23 @@
+{
+  "name": "login",
+  "version": "1.0.0",
+  "description": "Login Example",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "express": "~4.12.4",
+    "express-session": "^1.15.4",
+    "jade": "~1.9.2",
+    "jsonfile": "^3.0.1",
+    "jsonschema": "^1.1.1",
+    "multer": "^1.3.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
+  },
+  "author": "Madhu Chakravarthy <ncmadhu@gmail.com>",
+  "license": "ISC"
+}
