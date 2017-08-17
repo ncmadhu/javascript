@@ -22,6 +22,9 @@ n = node([1,2,3,4,5,6,7,8])
 console.log(n.value)
 console.log(n.left.value)
 console.log(n.right.right.value)
+n = node([1,2,3,4,5,6,7])
+console.log(n.value)
+console.log(n.left.value)
 
 
 

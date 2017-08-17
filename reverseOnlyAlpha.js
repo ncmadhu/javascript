@@ -14,7 +14,6 @@ var isAlpha = function(ch) {
 var reverseOnlyAlpha =  function(string) {
 
     var stringArray = string.split('')
-    console.log(stringArray)
 
     var end = string.length - 1 
     var index = 0
@@ -52,4 +51,5 @@ console.log(reverseOnlyAlpha("m$adhu$"))
 console.log(reverseOnlyAlpha("a,b$c"))
 console.log(reverseOnlyAlpha("aa,b$$$$"))
 console.log(reverseOnlyAlpha("$a$$$$b$$"))
+console.log(reverseOnlyAlpha("a!!!b.c.d,e'f,ghi"))
 

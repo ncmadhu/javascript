@@ -4,7 +4,7 @@
   "description": "Login Example",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "dependencies": {
     "body-parser": "^1.17.2",
@@ -19,5 +19,9 @@
     "passport-local": "^1.0.0"
   },
   "author": "Madhu Chakravarthy <ncmadhu@gmail.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.1.1",
+    "mocha": "^3.5.0"
+  }
 }

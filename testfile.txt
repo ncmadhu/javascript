@@ -1,0 +1,4 @@
+testing file read to parse ip in the file http://www.iamtesting.com
+file contents ip in several lines lile below https://testing.com in the wild
+10.1.4.5 is ip of server domain name of www.test.com so what happended www.test.in
+server has another ip 10.1.4.4 in local www.test-123.com

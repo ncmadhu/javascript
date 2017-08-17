@@ -5,7 +5,7 @@ var fs =  require('fs')
 var jsonfile = require('jsonfile')
 var validator =  require('jsonschema').Validator;
 var schemaValidator =  new validator();
-var userData = 'users.json'
+var usersDataFile = 'users.json'
 
 var users = {
     "id": "/users",
@@ -17,39 +17,76 @@ var users = {
     }
 };
 
-var addUser =  function(userObj) {
+var writeJsonFile =  function(fileName, data) {
 
-    fs.stat(userData, function(err, stat) {
-        if (err == null) {
-            jsonfile.readFile(userData, function(err, obj) {
-                if (err) {
-                    console.log(err)
-                } else {
-                    if (checkUserExists(userObj.username, obj.users)) {
-                        console.log("user already exists")
-                    } else {
-                        obj.users.push(userObj)
-                        console.log(JSON.stringify(obj))
-                        jsonfile.writeFile(userData, obj, function(err) {
-                            if (err) {
-                                console.error(err)
-                            }
-                        });
-                    }
-                }
-            });
+    jsonfile.writeFile(fileName, data, function(err) {
+        if (err) {
+            console.error(err)
+            return false
         } else {
-
-            users = {"users" : [userObj]}
-
-            jsonfile.writeFile(userData, users, function(err) {
-                if(err) {
-                    console.error(err)
-                }
-            });
-
+            return true
         }
     });
+
+}
+
+var readJsonFile =  function(fileName) {
+
+    return new Promise(function(resolve, reject) {
+
+        jsonfile.readfile(fileName, function(err, data) {
+            
+            if (err) {
+                return reject(err)
+            }
+
+            return resolve(data)
+        });
+    });
+}
+
+var checkFileExists = function(fileName) {
+
+    return new Promise(function(resolve, reject) {
+        
+        fs.stat(usersDataFile, function(err, result) {
+
+            if (err) {
+                return reject(err)
+            }
+
+            return resolve(true)
+        })
+    })
+}
+
+
+var addUser =  function(userObj) {
+
+    fs.stat(usersDataFile, function(err, stat) {
+        if (err == null) {
+            console.log("File exists")
+            usersData =  readJsonFile(usersDataFile)
+            console.log(JSON.stringify(usersData))
+            console.log("File content")
+            if (usersData != null) {
+                if (checkUserExists(userObj.username, usersData.users)) {
+                    console.log("user already exists")
+                    return false
+                } else {
+                    return writeJsonFile(usersDataFile, usersData)
+                }
+            } else {
+                console.log("Empty file")
+                return false
+            }
+        } else {
+            usersData = {"users" : [userObj]}
+            return writeJsonFile(usersDataFile, usersData)
+        }
+    });
+    console.log("Exiting")
+
 }
 
 var checkUserExists =  function(username, users) {
